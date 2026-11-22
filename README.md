@@ -18,15 +18,17 @@
                     '
 ```
 
-# puff isle ♡ (⑅˘꒳˘)
+# puff isle café ♡ (⑅˘꒳˘)
 
-a soft little 3D world that floats in a pink sky.
-seven puffs live here. they wander, they hop, they
-remember you. built with react three fiber.
+a tiny bakery floating in a pink sky.
+seven puffs knead, bake, steam and deliver —
+and they remember every visitor.
+
+**warm pastry. soft moments.**
 
 ---
 
-## meet the puffs ✿
+## meet the crew ✿
 
 ```
    momo        kinako       mame        yuki
@@ -39,40 +41,36 @@ remember you. built with react three fiber.
   sleepy      zoomy       a cloud
 ```
 
-| puff   | who              | favorite gift |
-|--------|------------------|---------------|
-| momo   | the bunny puff   | strawberry    |
-| kinako | the bear puff    | mochi         |
-| mame   | just a puff      | tea           |
-| yuki   | the kitty puff   | tea           |
-| anko   | the sleepy puff  | mochi         |
-| yuzu   | the zoomy puff   | strawberry    |
-| kumo   | the cloud puff   | strawberry    |
+| puff   | job               | signature               |
+|--------|-------------------|-------------------------|
+| momo   | pastry chef       | strawberry shortcake    |
+| kinako | head baker        | kinako mochi bun        |
+| mame   | tea master        | island matcha           |
+| yuki   | barista           | royal milk tea          |
+| anko   | oven warmer (naps)| red bean bun            |
+| yuzu   | delivery puff     | yuzu tart               |
+| kumo   | the original puff | cloud cream puff        |
 
-give a puff its favorite for extra hearts (ﾉ´ヮ`)ﾉ*: ･ﾟ✧
+the café is named after kumo — the cloud cream puff is the house special.
 
 ---
 
 ## things you can do ♡
 
 ```
-  drag        ~  orbit the island
-  scroll      ~  zoom in close
-  click       ~  say hi (puffs squash-jump!)
-  wiggle      ~  pet a puff with your cursor  (´,,•ω•,,)♡
-  gift bar    ~  hold a treat, click a puff to give it
-  sun / moon  ~  toggle day and twilight
-  hover       ~  see a puff's name and friendship level
+  browse      ~  pastries, desserts, drinks
+  specials    ~  three picks that change every day
+  + button    ~  add a treat to your tray
+  tray        ~  order for pickup, get a ticket + a puff
+  stamp card  ~  one stamp per daily visit
+  10 stamps   ~  a free cloud cream puff (ﾉ´ヮ`)ﾉ*: ･ﾟ✧
+  hover       ~  puffs squish when you poke them
 ```
 
-friendship levels:
-`new friend → acquaintance → buddy → bestie → soulmate`
+your tray, tickets and stamps save themselves (localStorage)
+— the puffs will remember you tomorrow ( ˘͈ ᵕ ˘͈ )♡
 
-visit every day to grow your streak ✧ everyone
-gets a little happier when you come back.
-
-your island saves itself (localStorage) — the puffs
-will remember you tomorrow ( ˘͈ ᵕ ˘͈ )♡
+ordering is a demo: no payments, no real kitchen. yet.
 
 ---
 
@@ -95,52 +93,47 @@ npm run preview
 ## what it's made of ✿
 
 ```
-  vite                    ~  dev server + bundler
-  react three fiber       ~  react renderer for three.js
-  drei                    ~  OrbitControls, Float, Sparkles, Html
-  @react-three/postprocessing ~ the dreamy bloom glow
-  zustand (+ persist)     ~  world state, saved per browser
+  vite                ~  dev server + bundler
+  react               ~  ui
+  zustand (+ persist) ~  tray, tickets, stamp card
+  svg by hand         ~  every puff and pastry is drawn in code
+  fredoka + nunito    ~  the round, cozy type
 ```
 
 ## where everything lives
 
 ```
 puff-isle/
-├── .github/workflows/ci.yml     build check on push
+├── .github/workflows/ci.yml       build check on push
 ├── public/favicon.svg
-├── src/
-│   ├── main.jsx                 entry
-│   ├── App.jsx                  canvas + ui shell
-│   ├── styles/global.css        pink overlay styles
-│   ├── data/puffs.js            the cast, gifts, sky palettes
-│   ├── stores/useWorld.js       zustand + localStorage save
-│   └── components/
-│       ├── canvas/              inside the 3D world
-│       │   ├── Experience.jsx   lights, bloom, sky crossfade
-│       │   ├── Island.jsx       torii, lanterns, sakura, pond
-│       │   ├── Puff.jsx         wandering + petting + gifts
-│       │   ├── Petals.jsx       falling sakura petals
-│       │   ├── Hearts.jsx       heart particle pool
-│       │   ├── Clouds.jsx       drifting clouds
-│       │   └── NightStars.jsx   twilight stars
-│       └── ui/                  floating on top
-│           ├── Wordmark.jsx
-│           ├── ModeToggle.jsx
-│           ├── GiftBar.jsx
-│           ├── CastList.jsx
-│           └── Toast.jsx
 ├── index.html
+├── src/
+│   ├── main.jsx                   entry
+│   ├── App.jsx                    page layout
+│   ├── styles/global.css          cream, caramel & cocoa
+│   ├── data/
+│   │   ├── menu.js                pastries, desserts, drinks, daily specials
+│   │   ├── puffs.js               the crew
+│   │   └── cafe.js                hours, address, stamp goal
+│   ├── stores/useCafe.js          tray, tickets, stamps (saved)
+│   └── components/
+│       ├── art/                   Puff, Treat, Icon (all svg)
+│       ├── layout/                Awning, Sidebar, InfoRail
+│       ├── sections/              Hero, MenuList, Specials, Drinks,
+│       │                          Crew, Visit, StampCard
+│       └── ui/                    Tray, Toast
 └── package.json
 ```
 
+edit the menu in `src/data/menu.js` — prices, names, who bakes what.
+
 ---
 
-## little notes (・_・;)
+## next little things (・_・;)
 
-- saves are per-browser. a new device is a brand
-  new island — real accounts would need a tiny backend.
-- everything is three.js primitives. no models,
-  no textures, just spheres with feelings.
+- a 3D floating-island hero (react three fiber) where the puffs wander
+- real pickup orders would need a tiny backend
+- seasonal menus (sakura in spring, chestnut in autumn)
 - all seven puffs are original characters ♡
 
 ```
